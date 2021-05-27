@@ -3,7 +3,7 @@ About r-pdp
 
 Home: https://bgreenwell.github.io/pdp/index.html, https://github.com/bgreenwell/pdp
 
-Package license: GPL (>= 2)
+Package license: GPL-2.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-pdp-feedstock/blob/master/LICENSE.txt)
 
