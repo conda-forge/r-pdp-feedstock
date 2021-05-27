@@ -57,7 +57,7 @@ test:
 
 about:
   home: https://bgreenwell.github.io/pdp/index.html, https://github.com/bgreenwell/pdp
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: A general framework for constructing partial dependence (i.e.,  marginal effect) plots
     from various types machine learning models in R.
   license_family: GPL3
