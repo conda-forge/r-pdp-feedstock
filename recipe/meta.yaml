@@ -1,4 +1,4 @@
-{% set version = '0.7.0' %}
+{% set version = "0.8.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pdp_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pdp/pdp_{{ version }}.tar.gz
-  sha256: 28d69eb63b92bdf8e974b3222e1e9565000d7f15a3bd90854a8e0446b0fa9a71
+  sha256: 4c49f379bf25a1117cfba5202fc85d035795b346e377a375c00dc238743392c6
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -30,25 +30,20 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-ggplot2 >=0.9.0
-    - r-gridextra
+    - r-foreach
+    - r-ggplot2 >=3.0.0
     - r-lattice
-    - r-magrittr
-    - r-mgcv
-    - r-plyr
-    - r-viridis
+    - r-rlang >=0.3.0
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-ggplot2 >=0.9.0
-    - r-gridextra
+    - r-foreach
+    - r-ggplot2 >=3.0.0
     - r-lattice
-    - r-magrittr
-    - r-mgcv
-    - r-plyr
-    - r-viridis
+    - r-rlang >=0.3.0
 
 test:
   commands:
@@ -58,10 +53,10 @@ test:
 about:
   home: https://bgreenwell.github.io/pdp/index.html, https://github.com/bgreenwell/pdp
   license: GPL-2.0-or-later
-  summary: A general framework for constructing partial dependence (i.e.,  marginal effect) plots
-    from various types machine learning models in R.
+  summary: A general framework for constructing partial dependence (i.e.,  marginal effect) plots from various types machine learning models in R.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
