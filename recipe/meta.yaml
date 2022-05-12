@@ -30,25 +30,20 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-ggplot2 >=0.9.0
-    - r-gridextra
+    - r-foreach
+    - r-ggplot2 >=3.0.0
     - r-lattice
-    - r-magrittr
-    - r-mgcv
-    - r-plyr
-    - r-viridis
+    - r-rlang >=0.3.0
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-ggplot2 >=0.9.0
-    - r-gridextra
+    - r-foreach
+    - r-ggplot2 >=3.0.0
     - r-lattice
-    - r-magrittr
-    - r-mgcv
-    - r-plyr
-    - r-viridis
+    - r-rlang >=0.3.0
 
 test:
   commands:
@@ -60,7 +55,8 @@ about:
   license: GPL-2.0-or-later
   summary: A general framework for constructing partial dependence (i.e.,  marginal effect) plots from various types machine learning models in R.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
