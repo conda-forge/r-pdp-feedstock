@@ -1,4 +1,4 @@
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pdp_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pdp/pdp_{{ version }}.tar.gz
-  sha256: 4c49f379bf25a1117cfba5202fc85d035795b346e377a375c00dc238743392c6
+  sha256: e23db66e5d575337d5c8fd664ccd0548cc85da2aca6613d90ce187be1dca376c
 
 build:
   merge_build_host: true  # [win]
