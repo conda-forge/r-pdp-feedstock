@@ -21,6 +21,11 @@ build:
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-rlang                    # [build_platform != target_platform]
+    - r-ggplot2                  # [build_platform != target_platform]
+    - r-foreach                  # [build_platform != target_platform]
+    - r-lattice                  # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('cxx') }}            # [not win]
