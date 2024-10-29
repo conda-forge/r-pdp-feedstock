@@ -224,6 +224,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@conda-forge/r](https://github.com/conda-forge/r/)
+* [@conda-forge/r](https://github.com/orgs/conda-forge/teams/r/)
 * [@fhoehle](https://github.com/fhoehle/)
 
