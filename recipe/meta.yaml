@@ -1,4 +1,4 @@
-{% set version = "0.8.1" %}
+{% set version = "0.8.2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/pdp_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/pdp/pdp_{{ version }}.tar.gz
-  sha256: e23db66e5d575337d5c8fd664ccd0548cc85da2aca6613d90ce187be1dca376c
+  sha256: 143afd7340f7b1fb38753d485371e7c590593530d9d43e33bb6e2bebd194ab1b
 
 build:
-  number: 3
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
