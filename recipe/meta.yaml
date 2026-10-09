@@ -44,9 +44,13 @@ requirements:
     - r-tinyplot
 
 test:
+  files:
+    - check_deps.R
   commands:
     - $R -e "library('pdp')"           # [not win]
     - "\"%R%\" -e \"library('pdp')\""  # [win]
+    - $R -f check_deps.R               # [not win]
+    - "\"%R%\" -f check_deps.R"        # [win]
 
 about:
   home: https://bgreenwell.github.io/pdp/index.html, https://github.com/bgreenwell/pdp
