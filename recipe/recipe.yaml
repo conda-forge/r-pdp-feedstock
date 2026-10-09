@@ -1,0 +1,82 @@
+schema_version: 1
+
+context:
+  version: "0.10.0"
+
+package:
+  name: r-pdp
+  version: ${{ version }}
+
+source:
+  - url:
+      - ${{ cran_mirror }}/src/contrib/pdp_${{ version }}.tar.gz
+      - ${{ cran_mirror }}/src/contrib/Archive/pdp/pdp_${{ version }}.tar.gz
+    sha256: 24b70d95f4a499aacc349917344339992307eb50565324badb6e717ba53af2a3
+
+build:
+  number: 1
+  script:
+    - if: win
+      then: '"%R%" CMD INSTALL --build .'
+      else: |
+        export DISABLE_AUTOBREW=1
+        ${R} CMD INSTALL --build . ${R_ARGS}
+  dynamic_linking:
+    rpaths:
+      - lib/R/lib/
+      - lib/
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - cross-r-base ${{ r_base }}
+        - r-tinyplot
+        - r-lattice
+    - if: not win
+      then:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - ${{ compiler('cxx') }}
+    - if: win
+      then:
+        - ${{ compiler('m2w64_c') }}
+        - ${{ stdlib('m2w64_c') }}
+        - ${{ compiler('m2w64_cxx') }}
+        - m2-filesystem
+        - m2-sed
+        - m2-coreutils
+        - m2-zip
+        - m2-make
+    - if: not win
+      then: make
+  host:
+    - r-base
+    - r-lattice
+    - r-tinyplot
+  run:
+    - r-base
+    - r-lattice
+    - r-tinyplot
+
+tests:
+  - script:
+      - Rscript -e "library('pdp')"
+      - Rscript check_deps.R
+    files:
+      recipe:
+        - check_deps.R
+
+about:
+  homepage: https://bgreenwell.github.io/pdp/index.html
+  repository: https://github.com/bgreenwell/pdp
+  license: GPL-2.0-or-later
+  license_family: GPL3
+  license_file:
+    - ${{ PREFIX }}/lib/R/share/licenses/GPL-2
+  summary: A general framework for constructing partial dependence (i.e.,  marginal effect) plots from various types machine learning models in R.
+
+extra:
+  recipe-maintainers:
+    - conda-forge/r
+    - fhoehle
