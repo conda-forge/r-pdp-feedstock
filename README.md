@@ -3,24 +3,13 @@ About r-pdp-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-pdp-feedstock/blob/main/LICENSE.txt)
 
-
-About r-pdp
------------
-
-Home: https://bgreenwell.github.io/pdp/index.html, https://github.com/bgreenwell/pdp
+Home: https://bgreenwell.github.io/pdp/index.html
 
 Package license: GPL-2.0-or-later
 
 Summary: A general framework for constructing partial dependence (i.e.,  marginal effect) plots from various types machine learning models in R.
 
-About r-pdp
------------
-
-Home: https://bgreenwell.github.io/pdp/index.html, https://github.com/bgreenwell/pdp
-
-Package license: GPL-2.0-or-later
-
-Summary: A general framework for constructing partial dependence (i.e.,  marginal effect) plots from various types machine learning models in R.
+Development: https://github.com/bgreenwell/pdp
 
 Current build status
 ====================
