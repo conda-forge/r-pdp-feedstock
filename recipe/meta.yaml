@@ -20,9 +20,7 @@ build:
 requirements:
   build:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-    - r-rlang                    # [build_platform != target_platform]
-    - r-ggplot2                  # [build_platform != target_platform]
-    - r-foreach                  # [build_platform != target_platform]
+    - r-tinyplot                 # [build_platform != target_platform]
     - r-lattice                  # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
     - {{ stdlib("c") }}                # [not win]
@@ -38,16 +36,12 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-foreach
-    - r-ggplot2 >=3.0.0
     - r-lattice
-    - r-rlang >=0.3.0
+    - r-tinyplot
   run:
     - r-base
-    - r-foreach
-    - r-ggplot2 >=3.0.0
     - r-lattice
-    - r-rlang >=0.3.0
+    - r-tinyplot
 
 test:
   commands:
